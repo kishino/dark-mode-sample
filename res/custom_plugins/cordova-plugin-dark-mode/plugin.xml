@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-dark-mode" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>cordova-plugin-dark-mode</name>
+
+  <js-module name="DarkMode" src="www/dark-mode.js">
+    <clobbers target="DarkMode" />
+  </js-module>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="DarkMode">
+        <param name="android-package" value="jp.co.pscsrv.cordova.DarkMode" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/jp/co/pscsrv/cordova/DarkMode.java" target-dir="src/jp/co/pscsrv/cordova" />
+  </platform>
+</plugin>

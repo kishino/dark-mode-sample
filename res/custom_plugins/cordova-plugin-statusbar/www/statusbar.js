@@ -60,7 +60,11 @@ var StatusBar = {
 
     styleDarkContent: function () {
         // dark text ( to be used on a light background )
-        exec(null, null, "StatusBar", "styleDarkContent", []);
+        if (cordova.platformId == 'ios') {
+            exec(null, null, "StatusBar", "styleDarkContent", []);
+        } else {
+            this.styleDefault();
+        }
     },
 
     styleBlackTranslucent: function () {

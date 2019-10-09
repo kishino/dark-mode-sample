@@ -29,13 +29,23 @@
     },
     mounted() {
       this.$ons.ready(() => {
-        // Use matchMedia to check the user preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+        if (this.$ons.platform.isWebView() && this.$ons.platform.isAndroid()) {
+          window.DarkMode.init()
+          window.DarkMode.getTheme().then(theme => {
+            this.changeTheme(theme === 'dark')
+          })
+          window.DarkMode.setOnThemeChanged(theme => {
+            this.changeTheme(theme === 'dark')
+          })
+        } else {
+          // Use matchMedia to check the user preference
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
 
-        this.changeTheme(prefersDark.matches)
+          this.changeTheme(prefersDark.matches)
 
-        // Listen for changes to the prefers-color-scheme media query
-        prefersDark.addListener((mediaQuery) => this.changeTheme(mediaQuery.matches))
+          // Listen for changes to the prefers-color-scheme media query
+          prefersDark.addListener((mediaQuery) => this.changeTheme(mediaQuery.matches))
+        }
       })
     },
     methods: {

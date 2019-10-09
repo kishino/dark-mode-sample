@@ -3,8 +3,10 @@
   "version": "4.0.4",
   "description": "",
   "dependencies": {
+    "cordova-android": "~8.1.0",
     "cordova-custom-config": "5.1.0",
     "cordova-ios": "~5.0.1",
+    "cordova-plugin-dark-mode": "file:res/custom_plugins/cordova-plugin-dark-mode",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "file:res/custom_plugins/cordova-plugin-statusbar",
     "cordova-plugin-webviewcolor": "~2.1.0",
@@ -29,10 +31,12 @@
       "cordova-plugin-whitelist": {},
       "monaca-plugin-monaca-core": {},
       "cordova-plugin-statusbar": {},
+      "cordova-plugin-dark-mode": {},
       "cordova-plugin-webviewcolor": {}
     },
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   },
   "devDependencies": {
